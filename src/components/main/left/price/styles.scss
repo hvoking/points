@@ -1,0 +1,12 @@
+.price-filter-wrapper {
+    display: grid;
+    grid-template-rows: min-content auto;
+    background-color: rgba(33, 33, 43, 1);
+    overflow: hidden;
+    border-radius: 10px;
+}
+.price-filter {
+    display: grid; 
+    grid-template-rows: auto 60px; 
+    overflow: hidden;
+}
