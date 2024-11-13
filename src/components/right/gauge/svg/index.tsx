@@ -2,7 +2,7 @@
 import { useCallback, Children, cloneElement } from 'react';
 
 // Context imports
-import { useGaugeSizes } from '../../../../context/sizes/gauge';
+import { useGaugeSizes } from 'context/sizes/gauge';
 
 export const SVGWrapper = ({ children }: any) => {
 	const { width, height, setWidth, setHeight, margin } = useGaugeSizes();

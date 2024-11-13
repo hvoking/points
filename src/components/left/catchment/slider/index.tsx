@@ -10,8 +10,8 @@ import { Legend } from './legend';
 import { Wrapper } from './wrapper';
 
 // Context imports
-import { useCircle } from '../../../../context/filters/circle';
-import { useRadiusSizes } from '../../../../context/sizes/radius';
+import { useCircle } from 'context/filters/circle';
+import { useRadiusSizes } from 'context/sizes/radius';
 
 // Third-party imports
 import * as d3 from 'd3';

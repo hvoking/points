@@ -5,8 +5,8 @@ import { Slider } from './slider';
 import './styles.scss';
 
 // Context imports
-import { useCircle } from '../../../context/filters/circle';
-import { useCircleSizes } from '../../../context/sizes/circle';
+import { useCircle } from 'context/filters/circle';
+import { useCircleSizes } from 'context/sizes/circle';
 
 // Third-party imports
 import * as d3 from 'd3';

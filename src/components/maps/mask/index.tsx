@@ -3,8 +3,6 @@ import { useMemo } from 'react';
 
 // Context imports
 import { useMask } from 'context/maps/mask';
-import { useParcelAreas } from 'context/filters/areas/parcel';
-import { useBuiltAreas } from 'context/filters/areas/built';
 import { useColors } from 'context/colors';
 
 // Third-party imports

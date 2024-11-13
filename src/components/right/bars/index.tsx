@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // Context imports
-import { useColors } from '../../../context/colors';
+import { useColors } from 'context/colors';
 
 // Third-party imports
 import * as d3 from "d3";
@@ -11,14 +11,6 @@ export const Bars = ({ data, title, name }: any) => {
 	const { roomsColors } = useColors();
 
 	if (!data) return <></>
-
-	const colors = data.reduce((total: any, curr: any) => {
-		const currentItem = curr[name];
-		if (!total[currentItem]) {
-			total[currentItem] = curr["colors"]
-		}
-		return total
-	}, {});
 		
 	const currentDistribution = data.reduce((acc: any, curr: any) => {
 	  if (curr[name]) {

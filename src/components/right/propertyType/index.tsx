@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // Context imports
-import { useColors } from '../../../context/colors';
+import { useColors } from 'context/colors';
 
 // Third-party imports
 import * as d3 from "d3";

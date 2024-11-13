@@ -3,8 +3,8 @@ import { SVGWrapper } from './svg';
 import { Circle } from './circle';
 
 // Context imports
-import { useGaugeSizes } from '../../../context/sizes/gauge';
-import { useColors } from '../../../context/colors';
+import { useGaugeSizes } from 'context/sizes/gauge';
+import { useColors } from 'context/colors';
 
 // Third party imports
 import * as d3 from "d3";
