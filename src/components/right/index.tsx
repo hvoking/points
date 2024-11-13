@@ -5,7 +5,7 @@ import { PropertyType } from './propertyType';
 import './styles.scss';
 
 // Context imports
-import { useMask } from '../../context/maps/mask';
+import { useMask } from 'context/maps/mask';
 
 export const Right = () => {
 	const { maskProperties } = useMask();

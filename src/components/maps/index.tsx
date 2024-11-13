@@ -10,9 +10,9 @@ import { Mask } from './mask';
 import { Circle } from './circle';
 
 // Context imports
-import { useMapbox } from '../../context/filters/mapbox';
-import { useEvents } from '../../context/maps/events';
-import { useCircle } from '../../context/filters/circle';
+import { useMapbox } from 'context/filters/mapbox';
+import { useEvents } from 'context/maps/events';
+import { useCircle } from 'context/filters/circle';
 
 // Third-party imports
 import { Map } from 'react-map-gl';

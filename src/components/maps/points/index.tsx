@@ -1,17 +1,14 @@
-// React imports
-import { useState, useEffect } from 'react';
-
 // Context imports
-import { useStyles } from '../../../context/maps/styles';
+import { useStyles } from 'context/maps/styles';
 
 // Third party imports
 import { Source, Layer } from 'react-map-gl';
 
 export const Points = () => {
-	const { fetchData, getTilesUrl } = useStyles();
-	
 	const tableSchema = "layers";
 	const tableName = "listings";
+
+	const { getTilesUrl } = useStyles();
 
 	const url = getTilesUrl(tableSchema, tableName)
 
