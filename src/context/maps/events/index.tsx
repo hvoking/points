@@ -65,7 +65,7 @@ export const EventsProvider = ({children}: any) => {
 			isDragging,
 			onDragStart,
 			onMouseMove,
-			onDragEnd,
+			onDragEnd
 		}}>
 			{children}
 		</EventsContext.Provider>

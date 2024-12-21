@@ -1,12 +1,13 @@
 // React imports
-import { useState, useEffect, useMemo, useContext, createContext } from 'react';
+import { useContext, createContext } from 'react';
 
 // Context imports
-import { useMapbox } from '../../filters/mapbox';
-import { useCircle } from '../../filters/circle';
+import { useMapbox } from 'context/filters/mapbox';
+import { useCircle } from 'context/filters/circle';
 
 // Third-party imports
 import * as turf from '@turf/turf';
+import { signal } from '@preact/signals-react';
 
 const MaskContext: React.Context<any> = createContext(null)
 
@@ -20,32 +21,15 @@ export const MaskProvider = ({children}: any) => {
 	const { mapRef } = useMapbox();
 	const { circleGeometry } = useCircle();
 
-	const [ mapFeatures, setMapFeatures ] = useState([]);
-	const [ activeFeatures, setActiveFeatures ] = useState(false);
+	const mapFeatures = signal<any[]>([]);
+	const map = mapRef.current;
 
-	useEffect(() => {
-		const map = mapRef.current;
-		if (!map) return;
-		const onData = (e: any) => e.tile && setActiveFeatures((prev) => !prev);
-	    map.on('data', onData);
-	    return () => {map.off('data', onData)};
-	}, [ mapRef.current ]);
+    mapFeatures.value = map?.queryRenderedFeatures();
 
-	useEffect(() => {
-		const map = mapRef.current;
-		if (!map) return;
-		const features = map.queryRenderedFeatures();
-		setMapFeatures(features);
-	}, [ activeFeatures, mapRef.current ]);
-
-	const maskProperties = useMemo(() => {
-	    return mapFeatures.filter((item: any) => {
-	        if (item.source === 'airbnb-points') {
-	            return turf.booleanPointInPolygon(item.geometry, circleGeometry);
-	        }
-	    return false
-	    });
-	}, [ mapFeatures, circleGeometry ]);
+	const maskProperties = mapFeatures.value.filter((item: any) => 
+		item.source === 'airbnb-points' &&
+		turf.booleanPointInPolygon(item.geometry, circleGeometry)
+	);
 
 	return (
 		<MaskContext.Provider value={{ maskProperties }}>
