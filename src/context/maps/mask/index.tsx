@@ -24,7 +24,7 @@ export const MaskProvider = ({children}: any) => {
 	const mapFeatures = signal<any[]>([]);
 	const map = mapRef.current;
 
-    mapFeatures.value = map?.queryRenderedFeatures();
+    mapFeatures.value = map ? map.queryRenderedFeatures() : [];
 
 	const maskProperties = mapFeatures.value.filter((item: any) => 
 		item.source === 'airbnb-points' &&
