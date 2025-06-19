@@ -2,7 +2,7 @@
 import { useCircle } from 'context/filters/circle';
 
 // Third party imports
-import { Source, Layer, LayerProps } from 'react-map-gl';
+import { Source, Layer, LayerProps } from 'react-map-gl/mapbox';
 
 export const Circle = () => {
     const { circleGeometry } = useCircle();

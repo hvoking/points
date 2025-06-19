@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useMapbox } from 'context/filters/mapbox';
 
 // Third-party imports
-import { Marker } from 'react-map-gl';
+import { Marker } from 'react-map-gl/mapbox';
 
 export const Avatar = () => {
 	const { marker, setMarker, mapRef } = useMapbox();

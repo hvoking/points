@@ -14,16 +14,16 @@ import { useMapbox } from 'context/filters/mapbox';
 import { useEvents } from 'context/maps/events';
 
 // Third-party imports
-import { Map } from 'react-map-gl';
+import { Map } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const Maps = () => {
-  const { mapRef, basemap, viewport, setViewport } = useMapbox();
+  const { mapRef, basemap, viewport } = useMapbox();
   const { isDragging, onDragStart, onMouseMove, onDragEnd } = useEvents();
 
-  const [ activeMap, setActiveMap ] = useState(false);
+  const [ isMapLoaded, setIsMapLoaded ] = useState(false);
 
-  const onMapLoad = () => {setActiveMap(true)}
+  const onMapLoad = () => {setIsMapLoaded(true)}
 
   return (
     <Wrapper>
@@ -41,11 +41,15 @@ export const Maps = () => {
         onTouchEnd={onDragEnd}
         dragPan={!isDragging}
       >
-        <Controllers/>
-        <Circle/>
-        <Points/>
-        <Mask/>
-        <Avatar/>
+        {isMapLoaded && 
+          <>
+            <Controllers/>
+            <Circle/>
+            <Points/>
+            <Mask/>
+            <Avatar/>
+          </>
+        }
       </Map>
 
     </Wrapper>

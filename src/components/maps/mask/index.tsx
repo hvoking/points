@@ -6,7 +6,7 @@ import { useMask } from 'context/maps/mask';
 import { useColors } from 'context/colors';
 
 // Third-party imports
-import { Source, Layer } from 'react-map-gl';
+import { Source, Layer } from 'react-map-gl/mapbox';
 import * as d3 from 'd3';
 
 export const Mask = () => {
@@ -17,7 +17,7 @@ export const Mask = () => {
     .domain([100, 400])
     .range([0.1, 0.3])
 
-  const geoJsonData = useMemo(() => {
+  const geoJsonData: any = useMemo(() => {
     if (!maskProperties || maskProperties.length === 0) return null;
 
     const features = maskProperties.flatMap((maskProp: any) => {

@@ -1,4 +1,6 @@
 .main {
+	height: calc(var(--vh, 1vh) * 100);
+  max-height: calc(var(--vh, 1vh) * 100);
 	display: grid;
 	grid-template-columns: 5fr 14fr 5fr;
 	grid-gap: 5px;

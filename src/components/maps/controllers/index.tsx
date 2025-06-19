@@ -6,7 +6,7 @@ import './styles.scss';
 import { useMapbox } from 'context/filters/mapbox';
 
 // Third party imports
-import { NavigationControl } from 'react-map-gl';
+import { NavigationControl } from 'react-map-gl/mapbox';
 
 export const Controllers = () => {
 	const { viewport, setViewport, placeCoordinates } = useMapbox();
